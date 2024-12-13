@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about me</title>
+    <style>
+        body {
+            background-color: white;
+            color: #333;
+            font-family: "Comic Sans MS", sans-serif;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        h2, h3, h4 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: limegreen;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        #newContent, #thirdPageContent, #fourthPageContent, #fifthPageContent {
+            margin-top: 20px;
+        }
+
+        #thirdPageContent h2 {
+            margin-bottom: 20px;
+        }
+
+        #fourthPageContent h2 {
+            margin-bottom: 20px;
+        }
+
+        #fifthPageContent h2 {
+            margin-bottom: 20px;
+        }
+
+        .full-image-button {
+        width: 50%;  
+        max-width: 50px; 
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+        transition: transform 0.3s ease;
+        }
+
+.full-image-button:hover {
+    transform: scale(1.1); /*ZOOOOOOOOOOOOOOOOM */
+}
+    </style>
+</head>
+<body>
+    <h1 id="greeting">hello i am cuong :)</h1>
+    <p id="instructions">click the button!!!!!</p>
+
+    <audio id="audio" loop>
+        <source src="flower garden.mp3" type="audio/mpeg">
+        your browser does not support the audio tag.
+    </audio>
+
+    <button id="startButton" onclick="showContent()">clickclickclick</button>
+
+    <div id="newContent" class="content" style="display: none;">
+        <img src="goose.JPG" alt="lil chilly" title="nice parka weather">
+        <h2>P4 @ cedarville university in ohio (cornfield central ☠️)</h2>
+        <h3>originally from NY, went to buffalo for my undergrad (go bills!)</h3>
+        <h4>currently live in columbus + doing my APPEs here</h4>
+        <button id="extraButton" onclick="goToThirdPage()">→</button>
+    </div>
+
+    <div id="thirdPageContent" style="display: none;">
+        <h2>my hobbies/fun facts about me</h2>
+        <img id="customImage" src="airpods.PNG" alt="airpod gaming" title="locked in" style="width: 200px;">
+        <p id="customText">PC gaming, weightlifting, soccer, pickleball, video editing, going to concerts, <a href="https://www.instagram.com/stories/highlights/17959675802641018/" target="_blank">cooking!</a> </p>
+        <p>i won a car giveaway in highschool but i was only 16 so i didn't get to keep it</p>
+        <p>i own bill gates' old macbook pro (yes, that bill gates)</p>
+        <p>i was the captain of the overwatch team my freshman-junior year of uni + played on the valorant team, competed for UB</p>
+        <p>my 3 friends and i started a $3 million dollar esports organization for fun when i was in undergrad</p>
+        <p>(shoutout to the taxpayers of NY for funding something i started just to play video games at school lol)</p>
+        <button onclick="goBackToSecondPage()">←</button>
+        <button onclick="goToFourthPage()">→</button>
+    </div>
+
+    <div id="fourthPageContent" style="display: none;">
+        <h2>why i chose pyrls</h2>
+        <img id="customImage" src="pyrls.png" alt="da logo" title="derek spelled pearls wrong" style="width: 200px;">
+        <p id="customText">i used pyrls a lot during didactics + continue to use it a lot on APPEs</p>
+        <p>wanted to get a behind the scenes look of how pyrls operates and if i would be interested in informatics</p>
+        <p>seeing how coding and pharmacy work together was also very interesting to me</p>
+        <p>(also it's a remote rotation so that's cool too)</p>
+        <button onclick="goBackToThirdPage()">←</button>
+        <button onclick="goToFifthPage()">→</button>
+    </div>
+
+    <div id="fifthPageContent" style="display: none;">
+        <h2>future goals and aspirations</h2>
+        <img id="customImage" src="pikasigh.JPG" alt="future goals" title="need$$$" style="width: 200px;">
+        <p>pass the NAPLEX/MPJE</p>
+        <p>get a job</p>
+        <p>pay off my crippling student loans</p>
+        <p id="customText">i enjoy the patient interaction part of community pharmacy so that is definitely what i'm leaning towards</p>
+        <p>i do think the work pyrls does is cool so maybe i'll look more into informatics after this month</p>
+        <button onclick="goBackToFourthPage()">←</button>
+        <button onclick="goToSixthPage()">→</button>
+    </div>
+
+    <div id="sixthPageContent" style="display: none;">
+        <h2>connect with me</h2>
+        <div class="social-media-buttons">
+            <a href="https://www.linkedin.com/in/cuongv/" target="_blank">
+                <img src="linkedin.png" alt="linkedin!" class="full-image-button">
+            </a>
+        </div>
+        <button onclick="goBackToFifthPage()">←</button>
+    </div>
+
+    <script>
+        function showContent() {
+            var audio = document.getElementById('audio');
+            audio.volume = 0.2; 
+            audio.play(); 
+            document.getElementById("greeting").style.display = "none";
+            document.getElementById("instructions").style.display = "none";
+            document.getElementById("startButton").style.display = "none";
+
+            document.getElementById("newContent").style.display = "block";
+            document.getElementById("extraButton").style.display = "inline-block";
+        }
+
+        function goToThirdPage() {
+            document.getElementById("newContent").style.display = "none";
+            document.getElementById("thirdPageContent").style.display = "block";
+        }
+
+        function goBackToSecondPage() {
+            document.getElementById("thirdPageContent").style.display = "none";
+            document.getElementById("newContent").style.display = "block";
+        }
+
+        function goToFourthPage() {
+            document.getElementById("thirdPageContent").style.display = "none";
+            document.getElementById("fourthPageContent").style.display = "block";
+        }
+
+        function goBackToThirdPage() {
+            document.getElementById("fourthPageContent").style.display = "none";
+            document.getElementById("thirdPageContent").style.display = "block";
+        }
+
+        function goToFifthPage() {
+            document.getElementById("fourthPageContent").style.display = "none";
+            document.getElementById("fifthPageContent").style.display = "block";
+        }
+
+        function goBackToFourthPage() {
+            document.getElementById("fifthPageContent").style.display = "none";
+            document.getElementById("fourthPageContent").style.display = "block";
+        }
+
+        function goToSixthPage() {
+            document.getElementById("fifthPageContent").style.display = "none";
+            document.getElementById("sixthPageContent").style.display = "block";
+        }
+
+        function goBackToFifthPage() {
+            document.getElementById("sixthPageContent").style.display = "none";
+            document.getElementById("fifthPageContent").style.display = "block";
+        }
+    </script>
+</body>
+</html>
